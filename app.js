@@ -1,13 +1,10 @@
-// require('./config/config');
+require('./config/config');
 require('./models/db');
-const db = require('./dbConnection');
-
-const path=require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const path= require('path')
 const rtsIndex = require('./routes/index.router');
 
 const app = express();
@@ -25,4 +22,4 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 // start server
-app.listen(3000, () => console.log(`Server started at port : 3000`));
+app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));
